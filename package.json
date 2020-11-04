@@ -1,0 +1,14 @@
+{
+  "name": "final-001",
+  "version": "1.0.0",
+  "engines": {
+    "node": "10.19.0"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/flatdragon/final-001.git",
+  "author": "Andrew Kochetygov",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  }
+}
