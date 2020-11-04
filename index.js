@@ -30,12 +30,14 @@ require('http').Server((req, res) => {
     })
 
     html = `
-        <input id="inp" type="text">
+        <input id="inp" type="text" />
         <button id="bt"></button>
         <script>
             const inp = document.querySelector('#inp')
             const bt = document.querySelector('#bt')
-            fetch(inp.value).then(res => res.text()).then(text => inp.value = text)   
+            bt.addEventListener('click', () => {
+                fetch(inp.value).then(res => res.text()).then(text => inp.value = text)
+            })   
         </script>
     `
 
