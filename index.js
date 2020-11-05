@@ -1,15 +1,11 @@
 require('http').Server((req, res) => {
   const author = 'itmo282167'
 
-  const headers = {
-    'X-Author': author,
-    'Content-Type': 'text/plain; charset=UTF-8',
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET,POST,DELETE',
-    'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers',
-  }
-
-  res.writeHead(200, headers)
+  res.setRequestHeader('X-Author', author)
+  res.setRequestHeader('Content-Type', 'text/plain; charset=UTF-8')
+  res.setRequestHeader('Access-Control-Allow-Origin', '*')
+  res.setRequestHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE')
+  res.setRequestHeader('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers')
 
   if (req.url === '/login/') {
     return res.end(author)
@@ -24,10 +20,7 @@ require('http').Server((req, res) => {
   }
 
   if (req.url === '/fetch/') {
-    res.writeHead(200, {
-      ...headers,
-      'Content-Type': 'text/html',
-    })
+    res.setRequestHeader('Content-Type', 'text/html; charset=UTF-8')
 
     html = `
         <input id="inp" type="text" />
