@@ -12,11 +12,13 @@ require('http').Server((req, res) => {
   }
 
   if (req.url === '/promise/') {
-    return function task(x) {
+    function task(x) {
       return new Promise((resolve, reject) => {
         x < 18 ? resolve('yes') : reject('no')
       })
     }
+
+    return res.end(String(task))
   }
 
   if (req.url === '/fetch/') {
